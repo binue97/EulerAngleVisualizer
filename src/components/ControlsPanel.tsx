@@ -41,7 +41,7 @@ export function ControlsPanel({ onChange }: ControlsPanelProps) {
       axisConvention: {
         value: 'FLU' as AxisConvention,
         options: conventionOptions,
-        label: 'XYZ ↦ spatial',
+        label: 'coordinates',
       },
       mode: {
         value: 'active' as Mode,
