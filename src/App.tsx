@@ -169,7 +169,12 @@ export default function App() {
           aria-orientation="vertical"
         />
         <div className="matrix-pane">
-          <MatrixPanel result={result} />
+          <MatrixPanel
+            result={result}
+            mode={inputs.mode}
+            composition={inputs.composition}
+            order={inputs.order}
+          />
         </div>
       </div>
     </div>

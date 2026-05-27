@@ -163,3 +163,254 @@ body {
 
 .katex { color: #e8e8e8; font-size: 14px; }
 .matrix-pane .composition .katex { font-size: 16px; }
+
+/* View toggle (Matrix composition / decomposition) */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.view-toggle {
+  display: inline-flex;
+  background: #1c1f24;
+  border: 1px solid #2a2d33;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.view-toggle button {
+  background: transparent;
+  color: #9ca3af;
+  border: none;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.12s, color 0.12s;
+}
+
+.view-toggle button:hover {
+  color: #e4e4e7;
+}
+
+.view-toggle button.active {
+  background: rgba(91, 141, 239, 0.25);
+  color: #fff;
+}
+
+/* Help button + popover */
+.help-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.help-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(28, 31, 36, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #9ca3af;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
+  padding: 0;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.help-btn:hover,
+.help-btn[aria-expanded='true'] {
+  background: rgba(91, 141, 239, 0.25);
+  color: #fff;
+  border-color: rgba(91, 141, 239, 0.6);
+}
+
+.help-popover {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1c1f24;
+  border: 1px solid #2a2d33;
+  border-radius: 8px;
+  padding: 14px 16px 12px;
+  width: 340px;
+  max-width: 90vw;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #d4d4d8;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.help-popover-arrow {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #1c1f24;
+  border-left: 1px solid #2a2d33;
+  border-top: 1px solid #2a2d33;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.help-close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 4px;
+  transition: background 0.12s, color 0.12s;
+}
+
+.help-close:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.help-popover h4 {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #b6c9f0;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.help-popover h4:not(:first-child) {
+  margin-top: 12px;
+}
+
+.help-popover p {
+  margin: 0 0 6px;
+}
+
+.help-popover ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.help-popover li {
+  margin-bottom: 3px;
+}
+
+.help-popover li:last-child {
+  margin-bottom: 0;
+}
+
+.help-popover strong {
+  color: #e4e4e7;
+  font-weight: 600;
+}
+
+/* Matrix input grid */
+.matrix-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.matrix-bracket {
+  width: 8px;
+  align-self: stretch;
+  border: 1.5px solid #6b7280;
+}
+.matrix-bracket.left  { border-right: none;  border-radius: 4px 0 0 4px; }
+.matrix-bracket.right { border-left:  none;  border-radius: 0 4px 4px 0; }
+
+.matrix-input {
+  display: grid;
+  grid-template-columns: repeat(3, 72px);
+  gap: 4px;
+  padding: 8px 6px;
+}
+
+.matrix-input input {
+  background: #1c1f24;
+  border: 1px solid #2a2d33;
+  color: #e4e4e7;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.1s;
+}
+
+.matrix-input input:focus {
+  border-color: rgba(91, 141, 239, 0.7);
+}
+
+.reset-btn {
+  background: rgba(28, 31, 36, 0.85);
+  color: #d4d4d8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.reset-btn:hover {
+  background: rgba(50, 55, 62, 0.95);
+  color: #fff;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #9ca3af;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.hint .warn,
+.hint.warn {
+  color: #f59e0b;
+}
+
+/* Decomposed angle output */
+.angle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 240px;
+}
+
+.angle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background: #1c1f24;
+  border-radius: 6px;
+  padding: 8px 14px;
+}
+
+.angle-sym {
+  font-size: 16px;
+  color: #b6c9f0;
+}
+
+.angle-val {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 15px;
+  color: #e4e4e7;
+}
