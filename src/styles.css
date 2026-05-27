@@ -12,19 +12,24 @@ body {
 
 .app {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: minmax(0, 1fr) 6px minmax(0, 1fr);
   height: 100vh;
+  overflow: hidden;
 }
 
 .scenes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid #2a2d33;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 0;
 }
 
 .scene-wrap {
   position: relative;
   border-right: 1px solid #2a2d33;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
 }
 .scene-wrap:last-child { border-right: none; }
 
@@ -91,15 +96,31 @@ body {
 
 .bottom {
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 340px 6px 1fr;
   overflow: hidden;
 }
 
 .controls-pane {
-  border-right: 1px solid #2a2d33;
   padding: 16px;
   overflow-y: auto;
   position: relative;
+}
+
+.resizer {
+  cursor: col-resize;
+  background: #2a2d33;
+  transition: background 0.12s;
+  position: relative;
+  z-index: 5;
+}
+
+.resizer.resizer-h {
+  cursor: row-resize;
+}
+
+.resizer:hover,
+.resizer:active {
+  background: rgba(91, 141, 239, 0.6);
 }
 
 /* leva uses a fixed-position panel by default; we'll position-it inside this pane */

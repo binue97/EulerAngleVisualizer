@@ -14,7 +14,6 @@ export interface RotationInputs {
   composition: Composition;
   order: RotationOrder;
   anglesDeg: [number, number, number];
-  /** Spatial-direction labels for X, Y, Z (e.g. 'FLU', 'RDF'). */
   axisConvention: AxisConvention;
 }
 
@@ -41,7 +40,7 @@ export function ControlsPanel({ onChange }: ControlsPanelProps) {
       axisConvention: {
         value: 'FLU' as AxisConvention,
         options: conventionOptions,
-        label: 'coordinates',
+        label: 'axis convention',
       },
       mode: {
         value: 'active' as Mode,
